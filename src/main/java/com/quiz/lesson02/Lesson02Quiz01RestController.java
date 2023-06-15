@@ -13,7 +13,7 @@ import com.quiz.lesson02.domain.Store;
 public class Lesson02Quiz01RestController {
 	
 	@Autowired
-	private StoreBO storeBO;  // spring bean을 주입받는다. DI
+	private StoreBO storeBO;  // spring bean을 주입받는다. Dependency Injection
 	
 	// http://localhost/lesson02/quiz01
 	@RequestMapping("/lesson02/quiz01")
