@@ -12,8 +12,7 @@ import com.quiz.lesson03.domain.RealEstate;
 public class RealEstateBO {
 	
 	// input : id
-	// output : RealEstate  =>  컨트롤러한테
-	
+	// output : RealEstate  =>  컨트롤러한테	
 	@Autowired
 	private RealEstateMapper realEstateMapper;
 	
@@ -22,14 +21,27 @@ public class RealEstateBO {
 	}
 	
 	// input : rentPrice
-	// output : List<RealEstate>
-	
+	// output : List<RealEstate>	
 	public List<RealEstate> getRealEstateListByRentPrice(int rentPrice) {
 		return realEstateMapper.selectRealEstateListByRentPrice(rentPrice);
 	}
-	
+		
+	// input : int, int
+	// output : List<RealEstate>	
 	public List<RealEstate> getRealEstateListByAreaPrice(int area, int price) {
 		return realEstateMapper.selectRealEstateListByAreaPrice(area, price);
 	}
 
+	public int addRealEstate(RealEstate realEstate) {
+		return realEstateMapper.insertRealEstate(realEstate);
+	}
+	
+	public int addRealEstateAsField(int realtorId, String address, int area, String type, int price, Integer rentPrice) {
+		return realEstateMapper.insertRealEstateAsField(realtorId, address, area, type, price, rentPrice);
+	}
+	
+	public int updateTypePriceById(int id, String type, int price) {
+		return realEstateMapper.updateTypePriceById(id, type, price);
+	}
+	
 }
