@@ -7,20 +7,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.quiz.lesson03.bo.RealEstateBO;
 
+@RequestMapping("/lesson03/quiz03")
 @RestController
 public class Lesson03Quiz03RestController {
 
 	@Autowired
 	private RealEstateBO realEstateBO;
 	
-	@RequestMapping("/lesson03/quiz03")
+	@RequestMapping("/1")
 	public String quiz03(
 			@RequestParam("id") int id,
 			@RequestParam("type") String type,
 			@RequestParam("price") int price) {
 		
 		int row = realEstateBO.updateTypePriceById(id, type, price);
-		return "수정 성공" + row;
+		return "수정 성공 : " + row;
 		
 	}
 	
