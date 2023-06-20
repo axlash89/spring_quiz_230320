@@ -7,22 +7,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.quiz.lesson03.bo.RealEstateBO;
 
-@RequestMapping("/lesson03/quiz03")
 @RestController
-public class Lesson03Quiz03RestController {
-
+public class Lesson03Quiz04RestController {
+	
 	@Autowired
 	private RealEstateBO realEstateBO;
 	
-	@RequestMapping("/1")
-	public String quiz03(
-			@RequestParam("id") int id,
-			@RequestParam("type") String type,
-			@RequestParam("price") int price) {
+	@RequestMapping("/lesson03/quiz04")
+	public String quiz04(
+			@RequestParam("id") int id) {
 		
-		int row = realEstateBO.updateRealEstateById(id, type, price);
-		return "수정 성공 : " + row;
+		realEstateBO.deleteRealEstateById(id);
+		
+		return "삭제 완료";
 		
 	}
-	
+
 }

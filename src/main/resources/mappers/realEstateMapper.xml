@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.quiz.lesson03.dao.RealEstateMapper">
+  
     <select id="selectRealEstateById" parameterType="int" resultType="com.quiz.lesson03.domain.RealEstate">
        
        SELECT 
@@ -20,6 +21,7 @@
        		`id` = #{id}
        
     </select>
+    
     <select id="selectRealEstateListByRentPrice" parameterType="int" resultType="com.quiz.lesson03.domain.RealEstate">
        
        SELECT 
@@ -40,6 +42,7 @@
         	]]>       
         	
     </select>
+    
     <select id="selectRealEstateListByAreaPrice" parameterType="map" resultType="com.quiz.lesson03.domain.RealEstate">
        
        SELECT 
@@ -65,6 +68,7 @@
 	   ORDER BY `id` DESC
         	
     </select>
+    
     <insert id="insertRealEstate" parameterType="com.quiz.lesson03.domain.RealEstate">
     	INSERT INTO `real_estate`
     	(
@@ -89,6 +93,7 @@
     		,now()    		
     	)
     </insert>
+    
     <insert id="insertRealEstateAsField" parameterType="map">
     	INSERT INTO `real_estate`
     	(
@@ -113,11 +118,23 @@
     		,now()    		
     	)
     </insert>
-    <update id="updateTypePriceById" parameterType="map">
+    
+    <update id="updateRealEstateById" parameterType="map">
     	UPDATE `real_estate`
     	SET
     		`type` = #{type}
     		,`price` = #{price}
-    	WHERE `id` = #{id}
+    		,`updatedAt` = now()
+    	WHERE 
+    		`id` = #{id}
     </update>
+    
+    <delete id="deleteRealEstateById" parameterType="int">
+    	DELETE 
+    	FROM 
+    		`real_estate`
+    	WHERE 
+    		`id` = #{id}
+    </delete>
+    
  </mapper>
