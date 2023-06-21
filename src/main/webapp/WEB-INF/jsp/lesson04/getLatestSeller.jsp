@@ -12,11 +12,11 @@
 <body>
 	
 	<div class="container">
-	
-		<h1>판매자 정보</h1>
-		<img src = "${result.profileImageUrl}" width="200">
-		<h3>${result.nickname}</h3>
-		<h3 class="text-warning">${result.temperature}</h3>
+		${seller}
+		<h1 class="mb-3">판매자 정보</h1>
+		<img src="${seller.profileImageUrl}" width="200" class="mb-2">
+		<div class="display-3">${seller.nickname}</div>
+		<div class="display-4 text-warning font-weight-bold">${seller.temperature}</div>
 		
 	</div>
 	

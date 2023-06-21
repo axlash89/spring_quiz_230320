@@ -12,7 +12,7 @@
 <body>
 	
 	<div class="container">
-		<h1>판매자 추가</h1>
+		<h1 class="mt-3 mb-3">판매자 추가</h1>
 		<form method="post" action="/lesson04/quiz01/add_seller">
 			<div class="form-group">
 				<label for="nickname"><b>닉네임</b></label>
@@ -26,7 +26,7 @@
 				<label for="temperature"><b>온도</b></label>
 				<input type="text" id="temperature" name="temperature" class="form-control col-3" placeholder="온도를 입력하세요">
 			</div>
-			<input type="submit" value="추가" class="btn btn-info">
+			<input type="submit" value="추가" class="btn btn-primary">
 		</form>
 	</div>
 	
