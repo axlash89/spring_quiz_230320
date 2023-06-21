@@ -42,7 +42,7 @@ public class Lesson04Quiz01Controller {
 	public String sellerInfo(Model model) {
 		// 최근 가입자 db select
 		Seller seller = sellerBO.getLatestSeller();
-		model.addAttribute("seller", seller);		
+		model.addAttribute("seller", seller);
 		return "lesson04/getLatestSeller";
 	}
 	
