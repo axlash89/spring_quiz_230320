@@ -27,7 +27,7 @@
 			</div>
 			<div class="form-group">
 				<label for="address"><b>주소</b></label>
-				<input type="text" id="address" name="address" class="form-control col-3" placeholder="ex) 서울시 강남구">
+				<input type="text" id="address" name="address" class="form-control col-9" placeholder="ex) 서울시 강남구">
 			</div>
 			<div class="form-group">
 				<label for="grade"><b>등급</b></label>
@@ -35,6 +35,7 @@
 			</div>
 			
 			<input type="submit" value="추가" class="btn btn-info">
+			<!-- <button type="submit" class="btn btn-primary">추가</button> -->
 			
 		</form>
 		
