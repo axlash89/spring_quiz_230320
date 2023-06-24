@@ -35,8 +35,7 @@ public class Lesson05Controller {
 		
 		
 		List<Map<String, Object>> membership = new ArrayList<>();
-		Map<String, Object> member = new HashMap<>();
-		
+		Map<String, Object> member = new HashMap<>();		
 		member.put("name", "손오공");
 		member.put("phoneNumber", "010-1234-5678");
 		member.put("grade", "VIP");
@@ -89,7 +88,7 @@ public class Lesson05Controller {
 		int total = 0;
 		for(int i = 0; i < candidates.size(); i++) {
 			total += candidates.get(i);
-		}		
+		}
 		model.addAttribute("total", total);
 		
 		
@@ -122,7 +121,7 @@ public class Lesson05Controller {
 	}
 	
 	@GetMapping("/quiz04")
-	public String quiz05(Model model) {
+	public String quiz04(Model model) {
 		
 		List<Member> members = new ArrayList<>();
 

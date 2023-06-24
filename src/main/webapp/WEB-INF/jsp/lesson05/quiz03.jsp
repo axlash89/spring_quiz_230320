@@ -32,7 +32,7 @@
 						<td><fmt:formatNumber value="${candidate}" type="number"/></td>
 						<td><fmt:formatNumber type="percent" value="${candidate / total}"/></td>
 					</tr>
-				</c:forEach>	
+				</c:forEach>
 			</tbody>		
 		</table>
 		
