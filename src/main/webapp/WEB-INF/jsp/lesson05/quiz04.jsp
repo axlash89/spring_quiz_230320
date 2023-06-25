@@ -17,8 +17,7 @@
 		
 		<h1>회원정보 리스트</h1>
 		
-		<table class="table text-center">
-			
+		<table class="table text-center mt-3">
 			<thead>
 				<tr>
 					<th>No</th>
@@ -59,7 +58,6 @@
 					</tr>
 				</c:forEach>
 			</tbody>
-			
 		</table>
 	
 	</div>
