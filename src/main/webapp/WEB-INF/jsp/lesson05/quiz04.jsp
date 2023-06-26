@@ -17,6 +17,8 @@
 		
 		<h1>회원정보 리스트</h1>
 		
+		<img src="/image/weather/sunny.jpg">
+		
 		<table class="table text-center mt-3">
 			<thead>
 				<tr>
