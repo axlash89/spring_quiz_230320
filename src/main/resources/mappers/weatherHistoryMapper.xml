@@ -4,8 +4,7 @@
  
  <mapper namespace="com.quiz.weather.dao.WeatherHistoryMapper">
  
- 	<select id="selectWeatherHistory" resultType="com.quiz.weather.domain.WeatherHistory">
- 		
+ 	<select id="selectWeatherHistory" resultType="com.quiz.weather.domain.WeatherHistory"> 		
  		SELECT 
  			`id`
  			,`date`
@@ -17,8 +16,34 @@
 			,`createdAt`
 			,`updatedAt`
  		FROM
- 			`weather_history`
- 		
- 	</select>
+ 			`weather_history` 		
+ 	</select> 	
+ 	
+ 	<insert id="insertWeatherHistory" parameterType="com.quiz.weather.domain.WeatherHistory">
+ 	
+ 		INSERT INTO `weather_history`
+ 		(
+			`date`
+			,`weather`
+			,`temperatures`
+			,`precipitation`
+			,`microDust`
+			,`windSpeed`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{date}
+ 			,#{weather}
+ 			,#{temperatures}
+ 			,#{precipitation}
+ 			,#{microDust}
+ 			,#{windSpeed}
+ 			,now()
+			,now()
+ 		)	
+ 	
+ 	</insert>
  
  </mapper>

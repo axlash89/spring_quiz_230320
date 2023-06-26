@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,22 +19,34 @@ public class WeatherHistoryController {
 	
 	@Autowired
 	private WeatherHistoryBO weatherHistoryBO;
-	
-	
-	@GetMapping("/main")
-	public String main(Model model) {
+		
+	@GetMapping("/mainWeatherList")
+	public String mainWeatherList(Model model) {
 		
 		List<WeatherHistory> weatherHistory = weatherHistoryBO.getWeatherHistory();
 		
 		model.addAttribute("weatherHistory", weatherHistory);
 		
-		return "weather/main";
+		return "weather/mainWeatherList";
 	}
 	
-	@GetMapping("/addWeather")
-	public String addWeather() {
+	@GetMapping("/mainAddWeather")
+	public String mainAddWeather() {
+		return "weather/mainAddWeather";
+	}
+	
+	@PostMapping("/addWeather")
+	public String addWeather(
+			@ModelAttribute WeatherHistory addWeatherHistory,
+			Model model) {
 		
-		return "weather/addWeather";
+		weatherHistoryBO.addWeatherHistory(addWeatherHistory);
+		
+		List<WeatherHistory> weatherHistory = weatherHistoryBO.getWeatherHistory();
+		
+		model.addAttribute("weatherHistory", weatherHistory);
+		
+		return "weather/mainWeatherList";
 	}
 
 }

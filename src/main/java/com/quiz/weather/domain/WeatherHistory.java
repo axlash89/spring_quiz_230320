@@ -2,9 +2,12 @@ package com.quiz.weather.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class WeatherHistory {
 
 	private int id;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 	private String weather;
 	private double temperatures;

@@ -11,4 +11,6 @@ public interface WeatherHistoryMapper {
 	
 	public List<WeatherHistory> selectWeatherHistory();
 
+	public void insertWeatherHistory(WeatherHistory addWeatherHistory);
+	
 }

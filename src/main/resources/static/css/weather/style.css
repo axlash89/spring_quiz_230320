@@ -1,9 +1,7 @@
 @charset "UTF-8";
 
-#wrap {height:1000px;}
-
-section {height:900px;}
+.contents {height:auto;}
 
 footer {height:100px;}
 
-.menu-button {color:"white";}
+.menu-font, .menu-font:hover {color:white;}

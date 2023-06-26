@@ -13,18 +13,9 @@
 <body>
 
 	<div id="wrap" class="container">
-		<section class="d-flex">
-			<div class="left-menu bg-info col-3">
-				<img src="/image/weather/weatherService.png" width="100px" alt="로고1">
-				<div class="h5 text-white mt-3">
-					<div class="mb-3">날씨</div>
-					<div class="mb-3">날씨입력</div>
-					<div class="mb-3">테마날씨</div>
-					<div class="mb-3">관측기후</div>
-				</div>
-			</div>			
-		<jsp:include page="weather_content.jsp"/>
-		</section>
+		
+		<jsp:include page="weatherList.jsp"/>
+		
 		<jsp:include page="footer.jsp"/>
 	
 	</div>

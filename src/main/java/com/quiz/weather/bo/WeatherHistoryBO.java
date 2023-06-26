@@ -14,9 +14,12 @@ public class WeatherHistoryBO {
 	@Autowired
 	private WeatherHistoryMapper weatherHistoryMapper;
 	
-	public List<WeatherHistory> getWeatherHistory() {
-		
+	public List<WeatherHistory> getWeatherHistory() {	
 		return weatherHistoryMapper.selectWeatherHistory();
+	}
+	
+	public void addWeatherHistory(WeatherHistory addWeatherHistory) {
+		weatherHistoryMapper.insertWeatherHistory(addWeatherHistory);
 	}
 	
 }
