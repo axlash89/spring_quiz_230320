@@ -18,8 +18,8 @@
  		FROM
  			`weather_history`
  	</select> 	
- 	<!-- 
- 	<insert id="insertWeatherHistory" parameterType="com.quiz.weather.domain.WeatherHistory">
+ 	
+ 	<!-- <insert id="insertWeatherHistory" parameterType="com.quiz.weather.domain.WeatherHistory">
  	
  		INSERT INTO `weather_history`
  		(
@@ -46,6 +46,7 @@
  	
  	</insert>
  	 -->
+ 	
  	<insert id="insertWeatherHistory" parameterType="map">
  	
  		INSERT INTO `weather_history`
@@ -72,5 +73,5 @@
  		)	
  	
  	</insert>
- 
+ 	
  </mapper>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 		
-	<div class="d-flex contents">	
+	<div class="d-flex contents">
 	
 		<nav class="bg-info col-3">
 			<img src="/image/weather/weatherService.png" width="100px" alt="로고1">
@@ -13,8 +13,7 @@
 				<li class="nav-item mb-3"><a href="#" class="nav-link menu-font">테마날씨</a></li>
 				<li class="nav-item mb-3"><a href="#" class="nav-link menu-font">관측기후</a></li>
 			</ul>
-		</nav>
-		
+		</nav>		
 		
 		<div class="col-9">
 				<h2 class="ml-1 mt-2">과거 날씨</h2>

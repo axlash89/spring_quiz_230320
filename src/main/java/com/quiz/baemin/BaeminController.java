@@ -43,6 +43,7 @@ public class BaeminController {
 		List<Review> reviews = reviewBO.getReviewsById(storeId);
 		
 		model.addAttribute("reviews", reviews);
+		model.addAttribute("storeName", storeName);
 		
 		return "baemin/reviews";
 	}

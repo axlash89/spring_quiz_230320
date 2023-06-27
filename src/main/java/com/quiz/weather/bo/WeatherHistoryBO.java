@@ -4,10 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quiz.weather.dao.WeatherHistoryMapper;
 import com.quiz.weather.domain.WeatherHistory;
@@ -22,8 +19,8 @@ public class WeatherHistoryBO {
 		return weatherHistoryMapper.selectWeatherHistory();
 	}
 	
-//	public void addWeatherHistory(WeatherHistory WeatherHistory) {
-//		weatherHistoryMapper.insertWeatherHistory(WeatherHistory);
+//	public void addWeatherHistory(WeatherHistory weatherHistory) {
+//		weatherHistoryMapper.insertWeatherHistory(weatherHistory);
 //	}
 		
 	public void addWeatherHistory(Date date, String weather, String microDust, double temperatures, double precipitation, double windSpeed) {

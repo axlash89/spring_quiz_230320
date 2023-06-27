@@ -18,6 +18,8 @@
 			`new_review`
 		WHERE
 			`storeId` = #{storeId}	
+		ORDER BY 
+			`createdAt` DESC
 	</select>
 
 </mapper>

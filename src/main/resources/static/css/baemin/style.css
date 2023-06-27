@@ -3,3 +3,5 @@
 .contents {height:auto;}
 
 footer {height:100px;}
+
+#storeLink, #storeLink:hover {text-decoration:none; color:black;}

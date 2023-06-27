@@ -40,10 +40,10 @@ public class WeatherHistoryController {
 	// 날씨 insert
 //	@PostMapping("/addWeather")
 //	public String addWeather(
-//			@ModelAttribute WeatherHistory WeatherHistory,
+//			@ModelAttribute WeatherHistory weatherHistory,
 //			Model model) {
 //		
-//		weatherHistoryBO.addWeatherHistory(WeatherHistory);
+//		weatherHistoryBO.addWeatherHistory(weatherHistory);
 //		
 //		List<WeatherHistory> weatherHistoryList = weatherHistoryBO.getWeatherHistory();
 //		
@@ -55,10 +55,9 @@ public class WeatherHistoryController {
 	
 //	@PostMapping("/addWeather")
 //	public String addWeather(
-//			@ModelAttribute WeatherHistory WeatherHistory,
-//			Model model) {
+//			@ModelAttribute WeatherHistory weatherHistory) {
 //		
-//		weatherHistoryBO.addWeatherHistory(WeatherHistory);
+//		weatherHistoryBO.addWeatherHistory(weatherHistory);
 //		
 //		return "redirect:/weather/mainWeatherList";  // 새 request 수행
 //		
@@ -71,8 +70,7 @@ public class WeatherHistoryController {
 			@RequestParam("microDust") String microDust,
 			@RequestParam("temperatures") double temperatures,
 			@RequestParam("precipitation") double precipitation,
-			@RequestParam("windSpeed") double windSpeed,
-			Model model) {
+			@RequestParam("windSpeed") double windSpeed) {
 		
 		weatherHistoryBO.addWeatherHistory(date, weather, microDust, temperatures, precipitation, windSpeed);
 		

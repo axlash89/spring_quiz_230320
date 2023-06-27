@@ -38,12 +38,11 @@
 				</select>
 			</div>	
 				
-			
 			<div class="d-flex justify-content-between mt-3">				
 				<div class="d-flex align-items-center col-4">
 					<div class="input-label">기온</div>
 					<div class="input-group">
-					  <input type="text" class="form-control ml-1"name="temperatures">
+					  <input type="text" class="form-control ml-1" name="temperatures">
 					  <div class="input-group-append">
 					    <span class="input-group-text">°C</span>
 					  </div>
@@ -52,7 +51,7 @@
 				<div class="d-flex align-items-center col-4">
 					<div class="input-label">강수량</div>
 					<div class="input-group">
-					  <input type="text" class="form-control ml-1"name="precipitation">
+					  <input type="text" class="form-control ml-1" name="precipitation">
 					  <div class="input-group-append">
 					    <span class="input-group-text">mm</span>
 					  </div>
@@ -61,7 +60,7 @@
 				<div class="d-flex align-items-center col-4">
 					<div class="input-label">풍속</div>
 					<div class="input-group">
-					  <input type="text" class="form-control ml-1"name="windSpeed">
+					  <input type="text" class="form-control ml-1" name="windSpeed">
 					  <div class="input-group-append">
 					    <span class="input-group-text">km/h</span>
 					  </div>

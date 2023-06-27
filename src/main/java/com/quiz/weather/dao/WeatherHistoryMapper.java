@@ -13,7 +13,7 @@ public interface WeatherHistoryMapper {
 	
 	public List<WeatherHistory> selectWeatherHistory();
 
-//	public void insertWeatherHistory(WeatherHistory WeatherHistory);
+//	public void insertWeatherHistory(WeatherHistory weatherHistory);
 	
 	public void insertWeatherHistory(
 			@Param("date") Date date,

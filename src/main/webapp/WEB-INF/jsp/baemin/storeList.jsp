@@ -20,11 +20,13 @@
 			</div>
 		</header>
 		<section class="contents">
+			
+			<h1 class="font-weight-light">우리동네 가게</h1>
 		
 			<c:forEach items="${baeminList}" var="store" varStatus="status">
 			
-				<div id="storeBox" class="w-100 border border-info mt-2">
-					<a href="/baemin/reviews?storeId=${status.count}&storeName=${store.name}">
+				<div id="storeBox" class="border border-info mt-2">
+					<a href="/baemin/reviews?storeId=${store.id}&storeName=${store.name}" id="storeLink">
 					<div class="m-2">
 						<h4>${store.name}</h4>
 						전화번호 : ${store.phoneNumber}<br>
