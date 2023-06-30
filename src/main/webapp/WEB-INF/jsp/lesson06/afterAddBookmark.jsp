@@ -15,7 +15,7 @@
 	<div id="wrap" class="container">
 		<h1>즐겨찾기 목록</h1>
 		
-		<table class="table">
+		<table class="table text-center">
 			<thead>			
 				<tr>
 					<th>No.</th>
@@ -26,15 +26,49 @@
 			<tbody>				
 				<c:forEach items="${bookmarkList}" var="bookmark" varStatus="status">
 					<tr>
-						<td>${status.count}</td>
+						<td>${bookmark.id}</td>
 						<td>${bookmark.name}</td>
-						<td>${bookmark.address}</td>
+						<td><a href="${bookmark.address}">${bookmark.address}</a></td>
+						<td>
+							<button type="button" id="${bookmark.id}" class="deleteBookmark btn btn-danger">삭제</button>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
-		</table>
-		
+		</table>		
 	</div>
+
+	<script>
+		$(document).ready(function() {
+			
+			$('.deleteBookmark').on('click', function() {
+				
+				
+				let id = $(this).attr('id');
+				
+				$.ajax({
+					
+					type:"get"
+					, url:"/lesson06/quiz01/delete_bookmark"
+					, data:{"id":id}
+				
+					, success:function(data) {
+						if (data.code == 1) {
+							location.href="/lesson06/quiz01/after_add_bookmark_view";
+						} else {
+							alert("삭제 실패");
+						}
+					}
+					, error:function(request, status, error) {
+						alert("삭제를 실패했습니다.")
+					}
+					
+				});
+				
+			});
+			
+		});
+	</script>
 
 </body>
 </html>

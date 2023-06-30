@@ -16,4 +16,8 @@ public interface BookmarkMapper {
 			@Param("name") String name,
 			@Param("address") String address);
 	
+	public boolean existBookmarkByAddress(String address);
+	
+	public void deleteBookmarkById(int id);
+	
 }

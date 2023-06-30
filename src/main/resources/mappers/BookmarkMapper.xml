@@ -31,5 +31,23 @@
 			,now()
 		)		
 	</insert>
+	
+	<select id="existBookmarkByAddress" parameterType="string" resultType="boolean">
+		SELECT 
+			count(*)
+		FROM 
+			`favorite_site`
+		WHERE 
+			`address` = #{address}	
+		
+	</select>
+	
+	<delete id="deleteBookmarkById" parameterType="int">
+		
+		DELETE FROM
+			`favorite_site`
+		WHERE `id` = #{id}
+	
+	</delete>
 
 </mapper>

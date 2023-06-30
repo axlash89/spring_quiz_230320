@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.quiz.lesson06.dao.BookmarkMapper;
 import com.quiz.lesson06.domain.Bookmark;
 
-@Service
+@Service  // Spring bean이 될 수 있도록 annotation
 public class BookmarkBO {
 
 	@Autowired
@@ -20,6 +20,14 @@ public class BookmarkBO {
 	
 	public void addBookmark(String name, String address) {
 		bookmarkMapper.insertBookmark(name, address);
+	}
+	
+	public boolean existBookmarkByAddress(String address) {
+		return bookmarkMapper.existBookmarkByAddress(address);
+	}
+	
+	public void deleteBookmarkById(int id) {
+		bookmarkMapper.deleteBookmarkById(id);
 	}
 	
 }

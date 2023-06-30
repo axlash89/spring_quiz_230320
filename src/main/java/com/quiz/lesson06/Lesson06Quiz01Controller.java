@@ -1,6 +1,8 @@
 package com.quiz.lesson06;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,13 +28,21 @@ public class Lesson06Quiz01Controller {
 		return "lesson06/addBookmark";
 	}
 	
-	@PostMapping("/add_bookmark")
 	@ResponseBody
-	public String addBookmark(
+	@PostMapping("/add_bookmark")
+	public Map<String, Object> addBookmark(
 			@RequestParam("name") String name,
 			@RequestParam("address") String address) {
+		
+		// db insert
 		bookmarkBO.addBookmark(name, address);
-		return "success";
+		
+		// 응답
+		// { "code":1, "result":"성공" }  JSON String
+		Map<String, Object> result = new HashMap<>();
+		result.put("code", 1);
+		result.put("result", "성공");
+		return result;
 	}
 	
 	@GetMapping("/after_add_bookmark_view")
@@ -41,5 +51,36 @@ public class Lesson06Quiz01Controller {
 		model.addAttribute("bookmarkList", bookmarkList);
 		return "lesson06/afterAddBookmark";
 	}
+	
+	@GetMapping("/is_duplication")
+	@ResponseBody
+	public Map<String, Boolean> isDuplication(
+			@RequestParam("address") String address) {
+		
+		// db 조회
+		boolean isDuplication = bookmarkBO.existBookmarkByAddress(address);
+		
+		// 응답
+		Map<String, Boolean> result = new HashMap<>();
+		result.put("isDuplication", isDuplication);
+		
+		return result;
+	}
+	
+	@GetMapping("/delete_bookmark")
+	@ResponseBody
+	public Map<String, Object> deleteBookmarkById(
+			@RequestParam("id") int id) {
+		
+		bookmarkBO.deleteBookmarkById(id);
+		
+		Map<String, Object> result = new HashMap<>();
+		result.put("code", 1);
+		result.put("result", "성공");
+		
+		return result;
+		
+	}
+	
 	
 }
