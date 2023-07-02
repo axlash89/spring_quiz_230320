@@ -22,11 +22,13 @@
 		
 		<label for="address">주소</label>
 		<div class="form-group">
-			<div class="d-flex">
+			<div class="form-inline">
 			 	<input type="text" id="address" class="form-control col-9">
-				<input type="button" id="checkDuplicateBtn" class="btn btn-info h-50 col-3" value="중복확인">	
+				<input type="button" id="checkDuplicateBtn" class="btn btn-info col-3" value="중복확인">	
 			</div>			
-			<small id="addressStatusArea"></small><small id="nbsp">&nbsp</small>
+			<!-- <small id="addressStatusArea"></small><small id="nbsp">&nbsp</small> -->
+			<small id="duplicationText" class="text-danger d-none">중복된 url 입니다.</small>
+			<small id="availableText" class="text-success d-none">저장 가능한 url 입니다.</small>
 		</div>		
 		
 		<input type="button" id="addBtn" class="btn btn-success btn-block" value="추가">
@@ -38,7 +40,7 @@
 		$(document).ready(function() {
 			
 			$('#checkDuplicateBtn').on('click', function() {
-				$('#addressStatusArea').empty();
+				/* $('#addressStatusArea').empty();
 				
 				let address = $('#address').val().trim();
 				
@@ -52,6 +54,7 @@
 					return;
 				}
 				
+								
 				$.ajax({
 					
 					type:"get"
@@ -69,9 +72,35 @@
 						alert("중복 확인에 실패하였습니다.")
 					}
 					
-				});
-					
+				}); */
 				
+				let address = $('#address').val().trim();
+				if (!address) {
+					alert("검사할 url을 입력해주세요");
+					return;
+				}
+				
+				// AJAX 통신 => DB URL 존재 여부
+				$.ajax({
+					
+					// request
+					type:"post"
+					, url:"/lesson06/quiz01/is_duplication"
+					, data:{"address":address}
+				
+					// response
+					, success:function(data) {
+						// {"code":1, "isDuplication":true}
+						if (data.isDuplication) {  // 중복
+							$('#duplicationText').removeClass('d-none');
+							$('#availableText').addClass('d-none');
+						} else {  // 사용 가능(중복 아님)
+							$('#duplicationText').addClass('d-none');
+							$('#availableText').removeClass('d-none');
+						}
+					}
+					
+				});
 					
 			});
 			
@@ -91,6 +120,12 @@
 				// http 아니고 그리고 https 아닐 때	
 				} else if (!address.startsWith('https://') && !address.startsWith('http://')) {
 					alert("주소 형식이 잘못되었습니다.")
+					return;
+				}
+				
+				// 중복확인 체크
+				if ($('#availableText').hasClass('d-none')) {  // 잘못된 경우( availableText d-none인 경우 )
+					alert("중복된 url입니다. 다시 확인해주세요.")
 					return;
 				}
 				

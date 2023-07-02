@@ -18,6 +18,10 @@ public interface BookmarkMapper {
 	
 	public boolean existBookmarkByAddress(String address);
 	
-	public void deleteBookmarkById(int id);
+	public Bookmark selectBookmarkByAddress(String address);
+	
+//	public void deleteBookmarkById(int id);
+
+	public int deleteBookmarkById(int id);
 	
 }

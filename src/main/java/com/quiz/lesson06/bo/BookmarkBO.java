@@ -26,8 +26,16 @@ public class BookmarkBO {
 		return bookmarkMapper.existBookmarkByAddress(address);
 	}
 	
-	public void deleteBookmarkById(int id) {
-		bookmarkMapper.deleteBookmarkById(id);
+	public Bookmark getBookmarkByAddress(String address) {
+		return bookmarkMapper.selectBookmarkByAddress(address);
+	}
+	
+//	public void deleteBookmarkById(int id) {
+//		bookmarkMapper.deleteBookmarkById(id);
+//	}
+	
+	public int deleteBookmarkById(int id) {		
+		return bookmarkMapper.deleteBookmarkById(id);
 	}
 	
 }

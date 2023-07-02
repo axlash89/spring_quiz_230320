@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+
+.menus {
+	width:250px;
+	height:35px;
+	text-align:center;
+	padding-top:7px;
+	font-weight:bold;
+}
+
+ul {
+	background-color:#DF7401;
+}
+
+.menu-anchor {
+	text-decoration:none;
+	color:white;
+	background-color:#DF7401;
+}
+
+.menu-anchor:hover {	
+	text-decoration:none;
+	color:white;
+	background-color:#B45F04;
+}
+
+#logo-anchor {
+	text-decoration:none;
+	color:black;
+}
+
+#logo-anchor:hover {
+	text-decoration:none;
+	color:black;
+}
+
+.box {
+	height:270px;
+	background-color:#DF7401;
+	color:white;
+}
+
+#box1, #box3 {
+	background-color:#B45F04;
+}
+
+#reservationBox {
+	width:500px;
+	font-weight:bold;
+}
+
+footer {
+	height:100px;
+	color:darkgray;
+}

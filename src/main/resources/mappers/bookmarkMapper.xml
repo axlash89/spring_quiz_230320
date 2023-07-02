@@ -42,6 +42,19 @@
 		
 	</select>
 	
+	<select id="selectBookmarkByAddress" parameterType="string" resultType="com.quiz.lesson06.domain.Bookmark">	
+		SELECT 
+			`id`
+			,`name`
+			,`address`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`favorite_site`	
+		WHERE 
+			`address` = #{address}		
+	</select>
+	
 	<delete id="deleteBookmarkById" parameterType="int">
 		
 		DELETE FROM
@@ -49,5 +62,5 @@
 		WHERE `id` = #{id}
 	
 	</delete>
-
+	
 </mapper>
