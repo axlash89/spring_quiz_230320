@@ -35,9 +35,9 @@
 <script>
 		$(document).ready(function() {
 			
-			
 			$('#date').datepicker({
 				dateFormat: "yy-mm-dd"
+				, minDate:0
 			});
 			
 			$('#bookingBtn').on('click', function() {
@@ -50,10 +50,10 @@
 				if(!name) {
 					alert("공란을 빠짐없이 작성하세요.")
 					return;
-				} else if(!date) {
+				} else if(date.length < 1) {
 					alert("공란을 빠짐없이 작성하세요.")
 					return;
-				} else if(!day) {
+				} else if(day == '') {
 					alert("공란을 빠짐없이 작성하세요.")
 					return;
 				} else if(!headcount) {
@@ -61,6 +61,18 @@
 					return;
 				} else if(!phoneNumber) {
 					alert("공란을 빠짐없이 작성하세요.")
+					return;
+				}
+				
+				if (isNaN(day)) {  // 숫자가 아닐 때 참
+					alert("숙박일수는 숫자만 입력 가능합니다.");
+					$('#day').val('');
+					return;
+				}
+				
+				if (isNaN(headcount)) {  // 숫자가 아닐 때 참
+					alert("숙박인원은 숫자만 입력 가능합니다.");
+					$('#headcount').val('');
 					return;
 				}
 				
@@ -78,19 +90,20 @@
 			    }
 				
 				$.ajax({
-					type:"post"
+					type:"post"  // insert할 때는 post,, put은 수정할 때, get은 조회할 때, delete는 삭제할 때
 					, url:"/tong/make_a_reservation"
 					, data:{"name":name 
-							,"date":date  
+							,"date":date 
 							,"day":day 
 							,"headcount":headcount 
 							,"phoneNumber":phoneNumber}
 				
 					, success:function(data) {
 						if (data.code == 1) {
-							location.href="/tong/main_reservation_list";
+							alert("예약되었습니다.");
+							location.href="/tong/main_reservation_list_view";
 						} else {
-							alert("예약 실패")
+							alert(data.errorMessage);
 						} 
 					} 
 					, error:function(request, status, error) {

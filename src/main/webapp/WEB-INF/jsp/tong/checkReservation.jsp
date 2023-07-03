@@ -18,7 +18,7 @@
 					<div class="d-flex justify-content-center mt-3 align-items-center">
 					<label for="phoneNumber" class="col-4">전화번호 : </label><input type="text" class="form-control col-7" id="phoneNumber">
 					</div>
-					<input type="button" id="bookingCheck" class="btn btn-success mt-3 float-right mr-2" value="조회하기">	
+					<input type="button" id="bookingCheckBtn" class="btn btn-success mt-3 float-right mr-2" value="조회하기">	
 				</div>
 				<div id="box3" class="box col-4">
 					<div class="h3 p-5 ml-5 mt-4">
@@ -52,7 +52,7 @@
 <script>
 		$(document).ready(function() {
 			
-			$('#bookingCheck').on('click', function() {
+			$('#bookingCheckBtn').on('click', function() {
 				let name = $('#name').val().trim();
 				let phoneNumber = $('#phoneNumber').val().trim();
 				
@@ -78,17 +78,19 @@
 			    }
 				
 				$.ajax({
-					type:"post"
+					// request
+					type:"post"  // 민감정보이기 때문에 post로 한다.
 					, url:"/tong/check_a_reservation"
 					, data:{"name":name 
 							,"phoneNumber":phoneNumber}
-				
+					
+					// response
 					, success:function(data) {
 						if (data.code == 1) {
-							alert("이름 : " + data.name + "\n날짜 : " + data.date + "\n일수 : " + data.day + "\n인원 : " + data.headcount + "\n상태 : " + data.state);
+							alert("이름 : " + data.booking.name + "\n날짜 : " + data.booking.date.slice(0,10) + "\n일수 : " + data.booking.day + "\n인원 : " + data.booking.headcount + "\n상태 : " + data.booking.state);
 						} else {
 							alert(data.errorMessage);
-						} 
+						}
 					} 
 					, error:function(request, status, error) {
 						alert("조회 실패. 관리자에게 문의 바랍니다.")

@@ -37,7 +37,7 @@
 						</c:choose>
 					</td>
 					<td><input type="button" class="del-btn btn btn-danger" value="삭제" data-booking-id="${booking.id}"></td>
-				</tr>	
+				</tr>
 			</c:forEach>	
 		</tbody>
 		
@@ -48,6 +48,7 @@
 		$(document).ready(function() {
 			
 			$('.del-btn').on('click', function() {
+				
 				let id = $(this).data('booking-id');
 				
 				$.ajax({
@@ -56,7 +57,9 @@
 					, data:{"id":id}
 				
 					, success:function(data) {
+						// {"code":1, "result":"성공"}
 						if (data.code == 1) {
+							alert("삭제 되었습니다.")
 							location.reload(true);
 						} else {
 							alert(data.errorMessage)
@@ -66,6 +69,7 @@
 						alert("삭제를 실패했습니다. 관리자에게 문의해주세요.")
 					}
 				});
+				
 			});
 			
 		});

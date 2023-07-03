@@ -16,7 +16,7 @@
 		
 		<jsp:include page="header.jsp"/>
 				
-		<jsp:include page="mainSection.jsp"/>
+		<jsp:include page="checkReservation.jsp"/>
 		
 		<jsp:include page="footer.jsp"/>
 		

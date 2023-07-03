@@ -6,8 +6,8 @@
 		<ul class="d-flex justify-content-between nav nav-fill">
 			<a href="#" class="menu-anchor"><li class="menus">펜션소개</li></a>
 			<a href="#" class="menu-anchor"><li class="menus">객실보기</li></a>
-			<a href="/tong/main_new_reservation" class="menu-anchor"><li class="menus">예약하기</li></a>
-			<a href="/tong/main_reservation_list" class="menu-anchor"><li class="menus">예약목록</li></a>
+			<a href="/tong/main_new_reservation_view" class="menu-anchor"><li class="menus">예약하기</li></a>
+			<a href="/tong/main_reservation_list_view" class="menu-anchor"><li class="menus">예약목록</li></a>
 		</ul>
 	</nav>
 </header>

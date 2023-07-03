@@ -13,14 +13,14 @@ public interface BookingMapper {
 
 	public List<Booking> selectBookingList();
 	
-	public void insertBooking(
+	public int insertBooking(
 			@Param("name") String name, 
 			@Param("date") Date date, 
 			@Param("day") int day, 
 			@Param("headcount") int headcount, 
 			@Param("phoneNumber") String phoneNumber);
 	
-	public Booking selectBookingByNameAndPhone(
+	public List<Booking> selectBookingByNameAndPhone(  // 셀렉트를 했을 때 중복이 되면 두개가 리턴될 수도 있는 상황임.
 			@Param("name") String name, 
 			@Param("phoneNumber") String phoneNumber);
 	
