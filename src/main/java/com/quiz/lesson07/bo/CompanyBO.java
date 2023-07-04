@@ -26,5 +26,20 @@ public class CompanyBO {
 		return company;
 		
 	}
+	
+	public CompanyEntity updateScaleAndHeadcountById(int id, String scale, int headcount) {
+		
+		CompanyEntity company = companyRepository.findById(id).orElse(null);
+		
+		if (company != null) {
+			company = company.toBuilder()
+			.scale(scale)
+			.headcount(headcount)
+			.build();
+			company = companyRepository.save(company);
+		}
+		return company;
+		
+	}
 
 }

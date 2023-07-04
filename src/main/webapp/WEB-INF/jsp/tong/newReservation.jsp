@@ -64,7 +64,7 @@
 					return;
 				}
 				
-				if (isNaN(day)) {  // 숫자가 아닐 때 참
+				if (isNaN(day)) {  // 숫자가 아닐 때 참 isNaN <- is not a number
 					alert("숙박일수는 숫자만 입력 가능합니다.");
 					$('#day').val('');
 					return;

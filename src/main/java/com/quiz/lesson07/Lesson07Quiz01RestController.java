@@ -25,7 +25,13 @@ public class Lesson07Quiz01RestController {
 	@GetMapping("/save2")
 	public CompanyEntity save2() {
 		CompanyEntity company = companyBO.addCompany("버블팡", "여신 금융업", "대기업", 6834);
-		return company;		
+		return company;
+	}
+	
+	@GetMapping("/update")
+	public CompanyEntity update() {
+		CompanyEntity company = companyBO.updateScaleAndHeadcountById(9, "중소기업", 34); 
+		return company;
 	}
 	
 }

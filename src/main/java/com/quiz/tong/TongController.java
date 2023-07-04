@@ -38,7 +38,7 @@ public class TongController {
 	}
 	
 	@GetMapping("/main_reservation_list_view")
-	public String mainReservationList(Model model) {		
+	public String mainReservationList(Model model) {
 		List<Booking> bookingList = bookingBO.getBookingList();
 		
 		model.addAttribute("bookingList", bookingList);  // 모델로 할 때는 날짜 제대로 나옴.
@@ -50,7 +50,7 @@ public class TongController {
 	// AJAX가 하는 요청
 	@PostMapping("/make_a_reservation")
 	@ResponseBody
-	public Map<String, Object> addReservation(
+	public Map<String, Object> addReservation (
 			@RequestParam("name") String name,
 			@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,  // @RequestParam("date") String date, 이렇게 받아올 수도 있음.
 			@RequestParam("day") int day,
@@ -78,11 +78,11 @@ public class TongController {
 	// 예약 내역 조회
 	@PostMapping("/check_a_reservation")
 	@ResponseBody
-	public Map<String, Object> checkReservation(
+	public Map<String, Object> checkReservation (
 			@RequestParam("name") String name,
 			@RequestParam("phoneNumber") String phoneNumber) {
 		
-		// Model로 내려가는 경우는 ResponseBody가 없을 때,, jsp로 return할 때나 의미가 있는 것임.
+		// Model로 내려가는 경우는 @ResponseBody가 없을 때,, jsp로 return할 때나 의미가 있는 것임.
 		
 		Booking booking = bookingBO.getBookingByNameAndPhone(name, phoneNumber);
 		
@@ -118,7 +118,7 @@ public class TongController {
 	// AJAX가 하는 요청
 	@DeleteMapping("/reservation_delete")
 	@ResponseBody
-	public Map<String, Object> deleteReservation(
+	public Map<String, Object> deleteReservation (
 			@RequestParam("id") int id) {
 		
 		int row = bookingBO.deleteBookingById(id);
