@@ -30,8 +30,14 @@ public class Lesson07Quiz01RestController {
 	
 	@GetMapping("/update")
 	public CompanyEntity update() {
-		CompanyEntity company = companyBO.updateScaleAndHeadcountById(9, "중소기업", 34); 
+		CompanyEntity company = companyBO.updateScaleAndHeadcountById(11, "중소기업", 34);
 		return company;
+	}
+	
+	@GetMapping("/delete")
+	public String delete() {
+		companyBO.deleteCompanyById(7);		
+		return "삭제 완료";
 	}
 	
 }
