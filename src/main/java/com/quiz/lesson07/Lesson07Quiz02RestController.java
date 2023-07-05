@@ -34,8 +34,23 @@ public class Lesson07Quiz02RestController {
 	}
 	
 	@GetMapping("/4")
-	public List<RecruitEntity> getRecruitByTypeAndSalary() {
-		return recruitRepository.findAllByTypeAndSalaryGreaterThanEqual("정규직", 5000);
+	public List<RecruitEntity> getRecruitByTypeOrSalary() {
+		return recruitRepository.findAllByTypeOrSalaryGreaterThanEqual("정규직", 9000);
+	}
+	
+	@GetMapping("/5")
+	public List<RecruitEntity> getRecruitByTypeAndSalaryLimit() {
+		return recruitRepository.findTop3ByTypeOrderBySalaryDesc("계약직");
+	}
+	
+	@GetMapping("/6")
+	public List<RecruitEntity> getRecruitByRegionAndSalary() {
+		return recruitRepository.findAllByRegionAndSalaryGreaterThanEqualAndSalaryLessThanEqual("성남시 분당구", 7000, 8500);
+	}
+	
+	@GetMapping("/7")
+	public List<RecruitEntity> getRecruitByDeadlineAndSalaryAndType() {
+		return recruitRepository.findByDeadlineAndSalaryAndType("2026-04-10", 8100, "정규직");
 	}
 	
 }

@@ -30,7 +30,7 @@ public class Lesson07Quiz01RestController {
 	
 	@GetMapping("/update")
 	public CompanyEntity update() {
-		CompanyEntity company = companyBO.updateScaleAndHeadcountById(11, "중소기업", 34);
+		CompanyEntity company = companyBO.updateScaleAndHeadcountById(12, "중소기업", 32);
 		return company;
 	}
 	
