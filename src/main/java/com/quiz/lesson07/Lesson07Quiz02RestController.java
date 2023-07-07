@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.quiz.lesson07.dao.RecruitRepository;
@@ -24,18 +25,20 @@ public class Lesson07Quiz02RestController {
 	}
 	
 	@GetMapping("/2")
-	public List<RecruitEntity> getRecruitByCompanyId() {
-		return recruitRepository.findAllByCompanyId(1);
+	public List<RecruitEntity> quiz02_2(
+			@RequestParam("companyId") int companyId) {
+		
+		return recruitRepository.findByCompanyId(companyId);
 	}
 	
 	@GetMapping("/3")
 	public List<RecruitEntity> getRecruitByPositionAndType() {
-		return recruitRepository.findAllByPositionAndType("웹 back-end 개발자", "정규직");
+		return recruitRepository.findByPositionAndType("웹 back-end 개발자", "정규직");
 	}
 	
 	@GetMapping("/4")
 	public List<RecruitEntity> getRecruitByTypeOrSalary() {
-		return recruitRepository.findAllByTypeOrSalaryGreaterThanEqual("정규직", 9000);
+		return recruitRepository.findByTypeOrSalaryGreaterThanEqual("정규직", 9000);
 	}
 	
 	@GetMapping("/5")
@@ -45,7 +48,8 @@ public class Lesson07Quiz02RestController {
 	
 	@GetMapping("/6")
 	public List<RecruitEntity> getRecruitByRegionAndSalary() {
-		return recruitRepository.findAllByRegionAndSalaryGreaterThanEqualAndSalaryLessThanEqual("성남시 분당구", 7000, 8500);
+//		return recruitRepository.findByRegionAndSalaryGreaterThanEqualAndSalaryLessThanEqual("성남시 분당구", 7000, 8500);
+		return recruitRepository.findByRegionAndSalaryBetween("성남시 분당구", 7000, 8500);
 	}
 	
 	@GetMapping("/7")
